@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-abstract class UserGenerator {
+abstract class MeetingGenerator {
 
     private static List<Meeting> meetingList = Arrays.asList(
             new Meeting("Mario","Coucou", "20h00", "21/04/2020", Arrays.asList(new Participants("mfitzjean@gmail.com"), new Participants("coucou@gmail.com"), new Participants("coucou2@gmail.com"))),

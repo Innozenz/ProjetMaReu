@@ -16,7 +16,7 @@ import com.example.project4mareu2.R;
 import com.example.project4mareu2.di.DI;
 import com.example.project4mareu2.models.Meeting;
 import com.example.project4mareu2.models.Participants;
-import com.example.project4mareu2.services.UserApiService;
+import com.example.project4mareu2.services.MeetingApiService;
 import com.example.project4mareu2.views.MyAdapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     private List<Meeting> meetings;
     private List<Participants> participants;
     private MyAdapter mMyAdapter;
-    private UserApiService mApiService;
+    private MeetingApiService mApiService;
 
 
     @Override

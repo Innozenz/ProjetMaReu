@@ -5,9 +5,9 @@ import com.example.project4mareu2.models.Participants;
 
 import java.util.List;
 
-public class UserListApiService implements UserApiService {
+public class MeetingListApiService implements MeetingApiService {
 
-    private List<Meeting> meetings = UserGenerator.generateMeeting();
+    private List<Meeting> meetings = MeetingGenerator.generateMeeting();
 
     public List<Meeting> getMeetings() {
         return meetings;
@@ -29,7 +29,7 @@ public class UserListApiService implements UserApiService {
         return mParticipants;
     }
 
-    private List<Participants> mParticipants = UserGenerator.generateParticipants();
+    private List<Participants> mParticipants = MeetingGenerator.generateParticipants();
 
 
     public void createParticipants(Participants participants) {

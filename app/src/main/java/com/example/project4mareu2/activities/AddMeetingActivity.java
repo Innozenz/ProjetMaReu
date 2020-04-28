@@ -20,7 +20,7 @@ import com.example.project4mareu2.TimePickerFragment;
 import com.example.project4mareu2.di.DI;
 import com.example.project4mareu2.models.Meeting;
 import com.example.project4mareu2.models.Participants;
-import com.example.project4mareu2.services.UserApiService;
+import com.example.project4mareu2.services.MeetingApiService;
 import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipDrawable;
 import com.google.android.material.chip.ChipGroup;
@@ -34,7 +34,7 @@ public class AddMeetingActivity extends AppCompatActivity implements TimePickerD
 
     // Member variables
 
-    private UserApiService mApiService;
+    private MeetingApiService mApiService;
     private EditText participants;
     private ChipGroup chipGroup;
     private EditText subject;

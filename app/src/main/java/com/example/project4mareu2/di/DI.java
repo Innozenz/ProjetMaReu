@@ -1,17 +1,17 @@
 package com.example.project4mareu2.di;
 
-import com.example.project4mareu2.services.UserApiService;
-import com.example.project4mareu2.services.UserListApiService;
+import com.example.project4mareu2.services.MeetingApiService;
+import com.example.project4mareu2.services.MeetingListApiService;
 
 public class DI {
 
-    public static UserApiService service = new UserListApiService();
+    public static MeetingApiService service = new MeetingListApiService();
 
-    public static UserApiService getUserApiService() {
+    public static MeetingApiService getUserApiService() {
         return service;
     }
 
-    public static UserApiService getNewInstanceApiService() {
-        return new UserListApiService();
+    public static MeetingApiService getNewInstanceApiService() {
+        return new MeetingListApiService();
     }
 }

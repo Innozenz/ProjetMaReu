@@ -15,7 +15,7 @@ import com.example.project4mareu2.R;
 import com.example.project4mareu2.di.DI;
 import com.example.project4mareu2.models.Meeting;
 import com.example.project4mareu2.models.Participants;
-import com.example.project4mareu2.services.UserApiService;
+import com.example.project4mareu2.services.MeetingApiService;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -24,7 +24,7 @@ import java.util.List;
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> implements Filterable {
 
     private Meeting currentMeeting;
-    private UserApiService mApiService = DI.getUserApiService();
+    private MeetingApiService mApiService = DI.getUserApiService();
 
     private List<Meeting> meetings;
     private List<Meeting> meetingsFiltered;

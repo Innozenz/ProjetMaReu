@@ -5,7 +5,7 @@ import com.example.project4mareu2.models.Participants;
 
 import java.util.List;
 
-public interface UserApiService {
+public interface MeetingApiService {
 
     List<Meeting> getMeetings();
 
