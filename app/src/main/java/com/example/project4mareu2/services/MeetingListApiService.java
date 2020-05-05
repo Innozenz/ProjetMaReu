@@ -3,6 +3,7 @@ package com.example.project4mareu2.services;
 import com.example.project4mareu2.models.Meeting;
 import com.example.project4mareu2.models.Participants;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MeetingListApiService implements MeetingApiService {
@@ -10,7 +11,7 @@ public class MeetingListApiService implements MeetingApiService {
     private List<Meeting> meetings = MeetingGenerator.generateMeeting();
 
     public List<Meeting> getMeetings() {
-        return meetings;
+        return new ArrayList<>(meetings);
     }
 
 

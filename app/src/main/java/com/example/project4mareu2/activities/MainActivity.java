@@ -6,12 +6,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
+import android.widget.DatePicker;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.project4mareu2.DatePickerFragment;
 import com.example.project4mareu2.R;
 import com.example.project4mareu2.di.DI;
 import com.example.project4mareu2.models.Meeting;
@@ -20,12 +22,15 @@ import com.example.project4mareu2.services.MeetingApiService;
 import com.example.project4mareu2.views.MyAdapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
     private RecyclerView mRecyclerView;
-    private List<Meeting> meetings;
+    private List<Meeting> meetings = new ArrayList<>();
     private List<Participants> participants;
     private MyAdapter mMyAdapter;
     private MeetingApiService mApiService;
@@ -40,12 +45,12 @@ public class MainActivity extends AppCompatActivity {
 
 
         mRecyclerView = (RecyclerView) findViewById(R.id.list);
-        initList();
+
 
 
 
         mMyAdapter = new MyAdapter(meetings);
-
+        initList();
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.setAdapter(mMyAdapter);
 
@@ -64,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main, menu);
         MenuItem item = menu.findItem(R.id.action_search);
+        MenuItem item2 = menu.findItem(R.id.filter);
         SearchView searchView = (SearchView) item.getActionView();
         searchView.setImeOptions(EditorInfo.IME_ACTION_DONE);
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -84,9 +90,10 @@ public class MainActivity extends AppCompatActivity {
     // Initialize the list
 
     private void initList() {
-        meetings = mApiService.getMeetings();
+        meetings.clear();
+        meetings.addAll(mApiService.getMeetings());
+        mMyAdapter.notifyDataSetChanged();
         participants = mApiService.getMeetingParticipants();
-        mRecyclerView.setAdapter(new MyAdapter(meetings));
     }
 
     @Override
