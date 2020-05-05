@@ -1,4 +1,4 @@
-package com.example.project4mareu2.views;
+package com.example.project4mareu2.activities;
 
 import android.app.AlertDialog;
 import android.view.LayoutInflater;

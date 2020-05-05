@@ -1,4 +1,4 @@
-package com.example.project4mareu2;
+package com.example.project4mareu2.activities;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
