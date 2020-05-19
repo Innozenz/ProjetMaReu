@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Project 4 MaReu 2</string>
+    <string name="app_name">MaReu</string>
     <string name="heure">00h00</string>
     <string name="title_reu"><u>Sujet de la réunion</u></string>
     <string name="heure_reu"><u>Heure de la réunion</u></string>
