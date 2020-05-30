@@ -44,7 +44,7 @@ public class MaReuUnitTest {
     public void addMeetingWithSuccess() {
         Meeting meetingToAdd = service.getMeetings().get(0);
         service.createMeetings(meetingToAdd);
-        assertEquals(service.getMeetings().size(), 2);
+        assertEquals(service.getMeetings().size(), 4);
     }
 
     @Test
@@ -56,8 +56,24 @@ public class MaReuUnitTest {
 
     @Test
     public void filterByDate() {
-        MyAdapter mMyAdapter = new MyAdapter(meetings);
-        mMyAdapter.getItemCount();
+        MyAdapter mMyAdapter = new MyAdapter(service.getMeetings());
+        assertEquals(3, mMyAdapter.getItemCount());
+        mMyAdapter.getDateFilter().filter("21/04/2020");
+        assertEquals(1, mMyAdapter.getItemCount());
+        mMyAdapter.getDateFilter().filter("30/03/2020");
+        assertEquals(0, mMyAdapter.getItemCount());
+    }
+
+    @Test
+    public void filterByLocation() {
+        MyAdapter mMyAdapter = new MyAdapter(service.getMeetings());
+        assertEquals(3, mMyAdapter.getItemCount());
+        mMyAdapter.getFilter().filter("Mario");
+        assertEquals(1, mMyAdapter.getItemCount());
+        mMyAdapter.getFilter().filter("Browser");
+        assertEquals(1, mMyAdapter.getItemCount());
+        mMyAdapter.getFilter().filter("Luigi");
+        assertEquals(0, mMyAdapter.getItemCount());
     }
 
 }
