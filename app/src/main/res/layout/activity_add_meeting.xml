@@ -72,7 +72,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="@string/liste_des_participants"
+        android:text="@string/participants"
         android:textColor="#000000"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -164,6 +164,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <HorizontalScrollView
+        android:id="@+id/horizontalScrollView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -189,5 +190,19 @@
 
         </com.google.android.material.chip.ChipGroup>
     </HorizontalScrollView>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:text="@string/liste_des_participants"
+        app:layout_constraintBottom_toTopOf="@+id/horizontalScrollView2"
+        app:layout_constraintEnd_toEndOf="@+id/participants_titre"
+        app:layout_constraintStart_toStartOf="@+id/participants_titre"
+        app:layout_constraintTop_toBottomOf="@+id/add_button" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

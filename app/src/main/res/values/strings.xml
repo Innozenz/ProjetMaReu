@@ -7,8 +7,9 @@
     <string name="date_reu"><u>Date de la réunion</u></string>
     <string name="date_date">dd/mm/aaaa</string>
     <string name="add_button">Ajouter la réunion</string>
-    <string name="liste_des_participants">Liste des participants</string>
+    <string name="participants">Participants</string>
     <string name="ajouter">Ajouter</string>
+    <string name="liste_des_participants">Liste des participants</string>
 
     <string-array name="meeting_location">
         <item>Mario</item>
