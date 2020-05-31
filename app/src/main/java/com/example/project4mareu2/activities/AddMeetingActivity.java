@@ -111,7 +111,6 @@ public class AddMeetingActivity extends AppCompatActivity implements TimePickerD
     }
         // Add meeting button
 
-
     public void btnSave(View view) {
         Meeting meeting = new Meeting(
                         mySpinner.getSelectedItem().toString(),

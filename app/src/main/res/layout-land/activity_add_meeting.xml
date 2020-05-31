@@ -19,6 +19,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="32dp"
+        android:background="@color/colorPrimaryDark"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <EditText
         android:id="@+id/subject"
         android:layout_width="0dp"
@@ -46,7 +57,7 @@
         android:id="@+id/timeTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="32dp"
         android:text="@string/heure"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="@+id/heure_reu"
@@ -94,7 +105,7 @@
         android:id="@+id/date_titre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="42dp"
+        android:layout_marginTop="18dp"
         android:text="@string/date_reu"
         android:textColor="#000000"
         android:textSize="14sp"
@@ -107,7 +118,7 @@
         android:id="@+id/dateTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="32dp"
         android:text="@string/date_date"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="@+id/date_titre"
@@ -119,11 +130,13 @@
         android:id="@+id/participants"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="128dp"
+        android:layout_marginEnd="120dp"
         android:layout_marginBottom="32dp"
         android:inputType="textEmailAddress"
         app:layout_constraintBottom_toTopOf="@+id/add_button"
-        app:layout_constraintEnd_toEndOf="@+id/participants_titre"
-        app:layout_constraintStart_toStartOf="@+id/participants_titre"
+        app:layout_constraintEnd_toStartOf="@+id/participants_titre2"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/participants_titre" />
 
     <Button
@@ -159,12 +172,10 @@
         android:id="@+id/horizontalScrollView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="125dp"
-        android:layout_marginEnd="100dp"
         app:layout_constraintBottom_toTopOf="@+id/save_button"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/participants_titre2"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/participants"
+        app:layout_constraintStart_toStartOf="@+id/participants_titre2"
         app:layout_constraintTop_toBottomOf="@+id/dateTextView"
         app:layout_constraintVertical_bias="0.63">
 
@@ -189,7 +200,7 @@
         android:id="@+id/participants_titre2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
         android:text="@string/liste_des_participants"
         android:textColor="#000000"
         android:textSize="14sp"
