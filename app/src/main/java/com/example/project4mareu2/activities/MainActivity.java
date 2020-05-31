@@ -45,17 +45,13 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
         setContentView(R.layout.activity_main);
         FloatingActionButton fab = findViewById(R.id.add);
         mApiService = DI.getUserApiService();
-
-
         mRecyclerView = (RecyclerView) findViewById(R.id.list);
-
-
-
-
         mMyAdapter = new MyAdapter(meetings);
         initList();
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.setAdapter(mMyAdapter);
+
+        //Meeting Activity creation
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
