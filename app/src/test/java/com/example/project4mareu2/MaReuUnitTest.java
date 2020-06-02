@@ -1,7 +1,6 @@
 package com.example.project4mareu2;
 
-import com.example.project4mareu2.activities.MainActivity;
-import com.example.project4mareu2.activities.MyAdapter;
+import com.example.project4mareu2.controller.adapter.MyAdapter;
 import com.example.project4mareu2.di.DI;
 import com.example.project4mareu2.models.Meeting;
 import com.example.project4mareu2.services.MeetingApiService;
@@ -11,12 +10,9 @@ import org.hamcrest.collection.IsIterableContainingInAnyOrder;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.junit.runners.JUnit4;
-import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
 
 import java.util.List;
-import java.util.logging.Filter;
 
 import static org.junit.Assert.*;
 

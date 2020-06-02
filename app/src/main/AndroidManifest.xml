@@ -10,9 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".activities.AddMeetingActivity"
-            android:parentActivityName=".activities.AddMeetingActivity"/>
-        <activity android:name=".activities.MainActivity">
+            android:name=".controller.activities.AddMeetingActivity"
+            android:parentActivityName=".controller.activities.AddMeetingActivity"/>
+        <activity android:name=".controller.activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

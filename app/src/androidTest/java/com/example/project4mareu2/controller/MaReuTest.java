@@ -1,4 +1,4 @@
-package com.example.project4mareu2.activities;
+package com.example.project4mareu2.controller;
 
 
 import android.view.View;
@@ -16,6 +16,7 @@ import androidx.test.rule.ActivityTestRule;
 import androidx.test.runner.AndroidJUnit4;
 
 import com.example.project4mareu2.R;
+import com.example.project4mareu2.controller.activities.MainActivity;
 import com.example.project4mareu2.di.DI;
 import com.example.project4mareu2.services.MeetingApiService;
 import com.example.project4mareu2.utils.DeleteViewAction;

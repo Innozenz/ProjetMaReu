@@ -1,4 +1,4 @@
-package com.example.project4mareu2.activities;
+package com.example.project4mareu2.controller.activities;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
@@ -18,8 +18,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.project4mareu2.R;
+import com.example.project4mareu2.controller.adapter.MyAdapter;
 import com.example.project4mareu2.di.DI;
-import com.example.project4mareu2.models.DatePickerFragment;
+import com.example.project4mareu2.controller.fragments.DatePickerFragment;
 import com.example.project4mareu2.models.Meeting;
 import com.example.project4mareu2.models.Participants;
 import com.example.project4mareu2.services.MeetingApiService;
