@@ -10,9 +10,9 @@ import java.util.List;
 public abstract class MeetingGenerator {
 
     public static List<Meeting> meetingList = Arrays.asList(
-            new Meeting("Mario","AERO", "20h00", "21/04/2020", Arrays.asList(new Participants("mfitzjean@gmail.com"), new Participants("coucou@gmail.com"), new Participants("coucou2@gmail.com"))),
-            new Meeting("Browser","INFO", "20h00", "25/04/2020", Arrays.asList(new Participants("mfitzjean@gmail.com"), new Participants("coucou@gmail.com"), new Participants("coucou2@gmail.com"))),
-            new Meeting("Toad","APP", "20h00", "29/04/2020", Arrays.asList(new Participants("mfitzjean@gmail.com"), new Participants("coucou@gmail.com"), new Participants("coucou2@gmail.com")))
+            new Meeting("Mario","AERO", "20h00", "21/04/2020", Arrays.asList(new Participants("mfitzjean@gmail.com"), new Participants("test@gmail.com"), new Participants("test2@gmail.com"))),
+            new Meeting("Browser","INFO", "20h00", "25/04/2020", Arrays.asList(new Participants("mfitzjean@gmail.com"), new Participants("test@gmail.com"), new Participants("test2@gmail.com"))),
+            new Meeting("Toad","APP", "20h00", "29/04/2020", Arrays.asList(new Participants("mfitzjean@gmail.com"), new Participants("test@gmail.com"), new Participants("test2@gmail.com")))
     );
 
     static List<Meeting> generateMeeting() {
