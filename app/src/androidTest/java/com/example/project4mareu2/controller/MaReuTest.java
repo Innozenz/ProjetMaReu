@@ -218,17 +218,6 @@ public class MaReuTest {
                         isDisplayed()));
         searchAutoComplete.perform(replaceText("Mario"), closeSoftKeyboard());
 
-        ViewInteraction searchAutoComplete2 = onView(
-                allOf(withId(R.id.search_src_text), withText("Mario"),
-                        childAtPosition(
-                                allOf(withId(R.id.search_plate),
-                                        childAtPosition(
-                                                withId(R.id.search_edit_frame),
-                                                1)),
-                                0),
-                        isDisplayed()));
-        searchAutoComplete2.perform(pressImeActionButton());
-
         ViewInteraction appCompatImageButton = onView(
                 allOf(withContentDescription("Collapse"),
                         childAtPosition(
@@ -238,8 +227,18 @@ public class MaReuTest {
                                                 0)),
                                 1),
                         isDisplayed()));
-        Thread.sleep(1500);
         appCompatImageButton.perform(click());
+
+        ViewInteraction actionMenuItemView2 = onView(
+                allOf(withId(R.id.filter), withContentDescription("Filter"),
+                        childAtPosition(
+                                childAtPosition(
+                                        withId(R.id.action_bar),
+                                        0),
+                                0),
+                        isDisplayed()));
+        Thread.sleep(1500);
+        actionMenuItemView2.perform(click());
     }
 
     @Test
