@@ -4,6 +4,7 @@ import com.example.project4mareu2.models.Meeting;
 import com.example.project4mareu2.models.Participants;
 
 import java.util.List;
+import java.util.logging.Filter;
 
 public interface MeetingApiService {
 
@@ -14,5 +15,9 @@ public interface MeetingApiService {
     void deleteMeetings(Meeting meeting);
 
     List<Participants> getMeetingParticipants();
+
+    Filter getFilter();
+
+    Filter getDateFilter();
 
 }
