@@ -1,10 +1,13 @@
 package com.example.project4mareu2.services;
 
+import android.widget.Filter;
+
 import com.example.project4mareu2.models.Meeting;
 import com.example.project4mareu2.models.Participants;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 
 public abstract class MeetingGenerator {
@@ -25,6 +28,40 @@ public abstract class MeetingGenerator {
 
     static List<Participants> generateParticipants() {
         return new ArrayList<>(participantsList);
+    }
+
+    public static java.util.logging.Filter generateDateFilter() {
+        Filter filter = new Filter() {
+            @Override
+            protected FilterResults performFiltering(CharSequence constraint) {
+                meetingsFiltered = mApiService.getMeetings();;
+                List<Meeting> filteredList = new ArrayList<>();
+                if (constraint == null || constraint.length() == 0) {
+                    filteredList.addAll(meetingsFiltered);
+                } else {
+                    String filterPattern = constraint.toString().toLowerCase().trim();
+                    for (Meeting item : meetingsFiltered) {
+                        if (item.getMeetingLocation().toLowerCase().contains(filterPattern)) {
+                            filteredList.add(item);
+                        } if (item.getMeetingDate().toLowerCase().contains(filterPattern)) {
+                            filteredList.add(item);
+                        }
+                    }
+                }
+                FilterResults results = new FilterResults();
+                results.values = filteredList;
+
+                return results;
+            }
+
+            @Override
+            protected void publishResults(CharSequence constraint, FilterResults results) {
+                meetings.clear();
+                meetings.addAll((Collection<? extends Meeting>) results.values);
+                notifyDataSetChanged();
+            }
+        };
+
     }
 
 }
