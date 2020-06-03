@@ -5,6 +5,7 @@ import com.example.project4mareu2.di.DI;
 import com.example.project4mareu2.models.Meeting;
 import com.example.project4mareu2.services.MeetingApiService;
 import com.example.project4mareu2.services.MeetingGenerator;
+import com.example.project4mareu2.services.MeetingListApiService;
 
 import org.hamcrest.collection.IsIterableContainingInAnyOrder;
 import org.junit.Before;
@@ -23,6 +24,7 @@ public class MaReuUnitTest {
     private MeetingApiService service;
     private MyAdapter mMyAdapter;
     private List<Meeting> meetings;
+    private MeetingListApiService mApiService;
 
     @Before
     public void setup() {
@@ -54,7 +56,7 @@ public class MaReuUnitTest {
     public void filterByDate() {
         MyAdapter mMyAdapter = new MyAdapter(service.getMeetings());
         assertEquals(3, mMyAdapter.getItemCount());
-        mMyAdapter.getDateFilter().filter("21/04/2020");
+        mApiService.getDateFilterMeetings().filter("21/04/2020");
         assertEquals(1, mMyAdapter.getItemCount());
         mMyAdapter.getDateFilter().filter("30/03/2020");
         assertEquals(0, mMyAdapter.getItemCount());
