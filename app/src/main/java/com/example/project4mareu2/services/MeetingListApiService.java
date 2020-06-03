@@ -1,5 +1,7 @@
 package com.example.project4mareu2.services;
 
+import android.widget.Adapter;
+
 import com.example.project4mareu2.models.Meeting;
 import com.example.project4mareu2.models.Participants;
 
@@ -10,7 +12,6 @@ import java.util.logging.Filter;
 public class MeetingListApiService implements MeetingApiService {
 
     private List<Meeting> meetings = MeetingGenerator.generateMeeting();
-    private Filter dateFilter = MeetingGenerator.generateDateFilter();
 
     public List<Meeting> getMeetings() {
         return new ArrayList<>(meetings);
@@ -32,14 +33,36 @@ public class MeetingListApiService implements MeetingApiService {
         return mParticipants;
     }
 
-    @Override
-    public Filter getFilter() {
-        return dateFilter;
+    public List<Meeting> getFilterMeetings(String constraint) {
+        List<Meeting> filteredList = new ArrayList<>();
+        if (constraint == null || constraint.length() == 0) {
+            filteredList.addAll(meetings);
+        } else {
+            String filterPattern = constraint.toString().toLowerCase().trim();
+            for (Meeting item : meetings) {
+                if (item.getMeetingLocation().toLowerCase().contains(filterPattern)) {
+                    filteredList.add(item);
+                } if (item.getMeetingDate().toLowerCase().contains(filterPattern)) {
+                    filteredList.add(item);
+                }
+            }
+        }
+        return filteredList;
     }
 
-    @Override
-    public Filter getDateFilter() {
-        return null;
+    public List<Meeting> getDateFilterMeetings(String constraint) {
+        List<Meeting> filteredList = new ArrayList<>();
+        if (constraint == null || constraint.length() == 0) {
+            filteredList.addAll(meetings);
+        } else {
+            String filterPattern = constraint.toString().toLowerCase().trim();
+            for (Meeting item2 : meetings) {
+                if (item2.getMeetingDate().toLowerCase().contains(filterPattern)) {
+                    filteredList.add(item2);
+                }
+            }
+        }
+        return filteredList;
     }
 
     private List<Participants> mParticipants = MeetingGenerator.generateParticipants();
@@ -48,6 +71,5 @@ public class MeetingListApiService implements MeetingApiService {
     public void createParticipants(Participants participants) {
         mParticipants.add(participants);
     }
-
 
 }

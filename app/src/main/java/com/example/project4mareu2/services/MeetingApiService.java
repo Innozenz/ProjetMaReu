@@ -16,8 +16,8 @@ public interface MeetingApiService {
 
     List<Participants> getMeetingParticipants();
 
-    Filter getFilter();
+    List<Meeting> getFilterMeetings(String newText);
 
-    Filter getDateFilter();
+    List<Meeting> getDateFilterMeetings(String constraint);
 
 }

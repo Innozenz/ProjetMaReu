@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> implements Filterable {
+public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     private Meeting currentMeeting;
     private MeetingApiService mApiService = DI.getUserApiService();
@@ -100,6 +100,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> impl
         });
     }
 
+
     static class MyViewHolder extends RecyclerView.ViewHolder {
 
         private final TextView name;
@@ -116,75 +117,4 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> impl
 
 
     }
-
-    // Filter the meetings
-
-    @Override
-    public Filter getFilter() {
-        return filter;
-    }
-
-    private Filter filter = new Filter() {
-        @Override
-        protected FilterResults performFiltering(CharSequence constraint) {
-            meetingsFiltered = mApiService.getMeetings();
-            List<Meeting> filteredList = new ArrayList<>();
-            if (constraint == null || constraint.length() == 0) {
-                filteredList.addAll(meetingsFiltered);
-            } else {
-                String filterPattern = constraint.toString().toLowerCase().trim();
-                for (Meeting item : meetingsFiltered) {
-                    if (item.getMeetingLocation().toLowerCase().contains(filterPattern)) {
-                        filteredList.add(item);
-                    } if (item.getMeetingDate().toLowerCase().contains(filterPattern)) {
-                        filteredList.add(item);
-                    }
-                }
-            }
-            FilterResults results = new FilterResults();
-            results.values = filteredList;
-
-            return results;
-        }
-
-        @Override
-        protected void publishResults(CharSequence constraint, FilterResults results) {
-            meetings.clear();
-            meetings.addAll((Collection<? extends Meeting>) results.values);
-            notifyDataSetChanged();
-        }
-    };
-
-    public Filter getDateFilter() {
-        return dateFilter;
-    }
-
-    private Filter dateFilter = new Filter() {
-        @Override
-        protected FilterResults performFiltering(CharSequence constraint) {
-            meetingsFiltered = mApiService.getMeetings();
-            List<Meeting> filteredList = new ArrayList<>();
-            if (constraint == null || constraint.length() == 0) {
-                filteredList.addAll(meetingsFiltered);
-            } else {
-                String filterPattern = constraint.toString().toLowerCase().trim();
-                for (Meeting item2 : meetingsFiltered) {
-                    if (item2.getMeetingDate().toLowerCase().contains(filterPattern)) {
-                        filteredList.add(item2);
-                    }
-                }
-            }
-            FilterResults results = new FilterResults();
-            results.values = filteredList;
-
-            return results;
-        }
-
-        @Override
-        protected void publishResults(CharSequence constraint, FilterResults results) {
-            meetings.clear();
-            meetings.addAll((Collection<? extends Meeting>) results.values);
-            notifyDataSetChanged();
-        }
-    };
 }

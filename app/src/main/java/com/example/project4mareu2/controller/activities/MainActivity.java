@@ -80,7 +80,9 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                mMyAdapter.getFilter().filter(newText);
+                meetings.clear();
+                meetings.addAll(mApiService.getFilterMeetings(newText));
+                mMyAdapter.notifyDataSetChanged();
                 return false;
             }
         });
@@ -128,6 +130,8 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
 
         SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
         String strDate = format.format(calendar.getTime());
-        mMyAdapter.getDateFilter().filter(strDate);
+        meetings.clear();
+        meetings.addAll(mApiService.getDateFilterMeetings(strDate));
+        mMyAdapter.notifyDataSetChanged();
     }
 }
